@@ -1,11 +1,12 @@
 from http import HTTPStatus
 from fastapi import FastAPI
+from app.schemas.schemas import Users
 
 
 app = FastAPI()
 
 
-@app.post("/users")
+@app.post("/users", response_model=Users)
 def post_users():
     pass
 
