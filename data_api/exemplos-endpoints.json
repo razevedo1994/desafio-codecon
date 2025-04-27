@@ -1,0 +1,143 @@
+{
+  "POST /users": {
+    "descricao": "Envia o arquivo JSON de usuários para ser carregado na memória.",
+    "request": {
+      "Content-Type": "application/json",
+      "body": "[...conteúdo do usuarios.json...]"
+    },
+    "response": {
+      "status": 200,
+      "body": {
+        "message": "Arquivo recebido com sucesso",
+        "user_count": 100000
+      }
+    }
+  },
+  "GET /superusers": {
+    "descricao": "Retorna os usuários com score >= 900 e ativos, com tempo de execução.",
+    "response": {
+      "status": 200,
+      "body": {
+        "timestamp": "2025-04-02T15:00:00Z",
+        "execution_time_ms": 127,
+        "data": "[...lista de superusuários...]"
+      }
+    }
+  },
+  "GET /top-countries": {
+    "descricao": "Agrupa os superusuários por país e retorna os 5 com mais usuários.",
+    "response": {
+      "status": 200,
+      "body": {
+        "timestamp": "2025-04-02T15:00:00Z",
+        "execution_time_ms": 127,
+        "countries": [
+          {
+            "country": "Brasil",
+            "total": 2387
+          },
+          {
+            "country": "Índia",
+            "total": 2210
+          },
+          {
+            "country": "Alemanha",
+            "total": 2143
+          },
+          {
+            "country": "EUA",
+            "total": 1988
+          },
+          {
+            "country": "Japão",
+            "total": 1871
+          }
+        ]
+      }
+    }
+  },
+  "GET /team-insights": {
+    "descricao": "Retorna estatísticas por equipe com base nos membros, projetos e liderança.",
+    "response": {
+      "status": 200,
+      "body": {
+        "timestamp": "2025-04-02T15:00:00Z",
+        "execution_time_ms": 127,
+        "teams": [
+          {
+            "team": "Frontend Avengers",
+            "total_members": 1890,
+            "leaders": 165,
+            "completed_projects": 2750,
+            "active_percentage": 79.3
+          },
+          {
+            "team": "DevOps Masters",
+            "total_members": 1954,
+            "leaders": 158,
+            "completed_projects": 2822,
+            "active_percentage": 82.1
+          }
+        ]
+      }
+    }
+  },
+  "GET /active-users-per-day": {
+    "descricao": "Retorna o número total de logins por data.",
+    "response": {
+      "status": 200,
+      "body": {
+        "timestamp": "2025-04-02T15:00:00Z",
+        "execution_time_ms": 127,
+        "logins": [
+          {
+            "date": "2025-03-26",
+            "total": 3012
+          },
+          {
+            "date": "2025-03-27",
+            "total": 2875
+          },
+          {
+            "date": "2025-03-28",
+            "total": 3250
+          },
+          {
+            "date": "2025-03-29",
+            "total": 3188
+          }
+        ]
+      }
+    }
+  },
+  "GET /evaluation": {
+    "descricao": "Executa testes automáticos nos endpoints da própria API e retorna um relatório de pontuação.",
+    "response": {
+      "status": 200,
+      "body": {
+        "tested_endpoints": {
+          "/superusuarios": {
+            "status": 200,
+            "time_ms": 123,
+            "valid_response": true
+          },
+          "/ranking-paises": {
+            "status": 200,
+            "time_ms": 98,
+            "valid_response": true
+          },
+          "/analise-equipes": {
+            "status": 200,
+            "time_ms": 155,
+            "valid_response": true
+          },
+          "/usuarios-ativos-por-dia": {
+            "status": 200,
+            "time_ms": 134,
+            "valid_response": true
+          }
+        }
+      }
+    }
+  }
+}
