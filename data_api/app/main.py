@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from fastapi impot FastAPI
+from fastapi import FastAPI
 
 
 app = FastAPI()
@@ -17,14 +17,14 @@ def get_superusers():
 def get_top_countries():
     pass
 
-@get.get("/team_insights")
+@app.get("/team_insights")
 def get_team_insights():
     pass
 
-@get.get("/active-users-per-day")
+@app.get("/active-users-per-day")
 def get_active_day_users():
     pass
 
-@get.get("/evaluation")
+@app.get("/evaluation")
 def get_evaluation():
     pass
