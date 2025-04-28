@@ -1,21 +1,26 @@
-from typing import List
-from typing_extensions import TypedDict
 from datetime import date
+from typing import List
 from uuid import UUID
+
+from pydantic import BaseModel
+from typing_extensions import TypedDict
 
 
 class Projects(TypedDict):
     nome: str
     concluido: bool
 
+
 class Team(TypedDict):
     nome: str
     lider: bool
     projetos: List[Projects]
 
+
 class Logs(TypedDict):
     date: date
     action: str
+
 
 class Users(TypedDict):
     id: UUID
@@ -26,3 +31,7 @@ class Users(TypedDict):
     pais: str
     equipe: Team
     logs: List[Logs]
+
+
+class UsersList(BaseModel):
+    users: List[Users]
