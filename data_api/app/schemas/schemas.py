@@ -6,6 +6,11 @@ from pydantic import BaseModel
 from typing_extensions import TypedDict
 
 
+class UsersMessage(BaseModel):
+    message: str
+    user_count: int
+
+
 class Projects(TypedDict):
     nome: str
     concluido: bool
