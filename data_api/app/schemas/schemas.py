@@ -22,7 +22,7 @@ class Logs(TypedDict):
     action: str
 
 
-class Users(TypedDict):
+class User(TypedDict):
     id: UUID
     nome: str
     idade: int
@@ -34,4 +34,4 @@ class Users(TypedDict):
 
 
 class UsersList(BaseModel):
-    users: List[Users]
+    users: List[User]
