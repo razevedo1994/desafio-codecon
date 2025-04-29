@@ -4,19 +4,22 @@ from typing import List
 from fastapi import FastAPI
 from pydantic import TypeAdapter
 
-from app.schemas.schemas import User, UsersList
+from app.schemas.schemas import User, UsersMessage
 
 app = FastAPI()
 
 database = dict()
 
 
-@app.post("/users", status_code=HTTPStatus.CREATED, response_model=UsersList)
+@app.post("/users", status_code=HTTPStatus.OK, response_model=UsersMessage)
 def post_users(users: List[User]):
     ta = TypeAdapter(List[User])
     database["users"] = ta.validate_python(users)
 
-    return database
+    return {
+        "message": "Arquivo recebido com sucesso",
+        "user_count": len(database["users"]),
+    }
 
 
 @app.get("/superusers")
