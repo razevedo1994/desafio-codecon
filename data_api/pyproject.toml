@@ -34,7 +34,7 @@ addopts = "-p no:warnings"
 run = "fastapi dev app/main.py"
 
 pre_test = "task lint"
-test = "pytest --cov=fast_zero -vv"
+test = "pytest --cov=data_api -vv"
 post_test = "coverage html"
 
 lint = "ruff check . ; ruff check . --diff"
